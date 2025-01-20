@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> NexCore Games Official Website </title>
+    <meta name="description" content="NexCore Games - Your hub for innovative and exciting gaming experiences. Explore our games, learn about us, and get in touch!">
+    <meta name="keywords" content="NexCore Games, Gaming, Indie Games, Puzzle Games, Game Development">
+    <meta name="author" content="NexCore Games">
+    <title>NexCore Games Official Website</title>
     <style>
+        :root {
+            --primary-color: #ff6600;
+            --secondary-color: #161b22;
+            --text-color: #c9d1d9;
+            --bg-color: #0d1117;
+            --hover-color: #e65c00;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,9 +24,10 @@
         }
 
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
@@ -30,22 +42,30 @@
             margin-bottom: 0.5rem;
         }
 
+        header p {
+            font-size: 1.2rem;
+        }
+
         nav {
             display: flex;
             justify-content: center;
             background: #1f2937;
             padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         nav a {
-            color: #c9d1d9;
+            color: var(--text-color);
             text-decoration: none;
             margin: 0 1.5rem;
             font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #ff6600;
+            color: var(--primary-color);
         }
 
         .container {
@@ -61,12 +81,12 @@
         .games {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .game {
-            background: #161b22;
-            padding: 1rem;
+            background: var(--secondary-color);
+            padding: 1.5rem;
             border: 1px solid #30363d;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
@@ -88,7 +108,7 @@
 
         footer {
             background: #1f2937;
-            color: #c9d1d9;
+            color: var(--text-color);
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 2rem;
@@ -96,18 +116,19 @@
 
         footer .social-icons a {
             margin: 0 0.5rem;
-            color: #c9d1d9;
+            color: var(--text-color);
             text-decoration: none;
             font-size: 1.5rem;
+            transition: color 0.3s ease;
         }
 
         footer .social-icons a:hover {
-            color: #ff6600;
+            color: var(--primary-color);
         }
 
         form {
-            background: #161b22;
-            padding: 1rem;
+            background: var(--secondary-color);
+            padding: 1.5rem;
             border: 1px solid #30363d;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
@@ -118,18 +139,19 @@
             margin-bottom: 1rem;
             padding: 0.75rem;
             border: 1px solid #30363d;
-            background: #0d1117;
-            color: #c9d1d9;
+            background: var(--bg-color);
+            color: var(--text-color);
             border-radius: 5px;
+            transition: border-color 0.3s ease;
         }
 
         form input:focus, form textarea:focus, form button:focus {
             outline: none;
-            border-color: #ff6600;
+            border-color: var(--primary-color);
         }
 
         form button {
-            background: #ff6600;
+            background: var(--primary-color);
             color: #fff;
             border: none;
             cursor: pointer;
@@ -137,47 +159,36 @@
         }
 
         form button:hover {
-            background: #e65c00;
+            background: var(--hover-color);
         }
 
-        .feedback-section {
-            margin-top: 2rem;
-            background: #161b22;
-            padding: 1rem;
-            border-radius: 10px;
-        }
-
-        .feedback-section h3 {
-            margin-bottom: 1rem;
-        }
-
-        .feedback-section textarea {
-            width: 100%;
-            margin-bottom: 1rem;
-            padding: 0.75rem;
-            border: 1px solid #30363d;
-            background: #0d1117;
-            color: #c9d1d9;
-            border-radius: 5px;
-        }
-
-        .feedback-section button {
-            background: #ff6600;
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
             color: #fff;
             border: none;
-            padding: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
             cursor: pointer;
+            display: none;
             transition: background 0.3s ease;
         }
 
-        .feedback-section button:hover {
-            background: #e65c00;
+        .back-to-top:hover {
+            background: var(--hover-color);
+        }
+
+        .back-to-top.show {
+            display: block;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1> Welcome to NexCore Games Official Website</h1>
+        <h1>Welcome to NexCore Games Official Website</h1>
         <p>Your hub for innovative and exciting gaming experiences.</p>
     </header>
 
@@ -197,35 +208,34 @@
             <h2>Our Games</h2>
             <div class="games">
                 <div class="game">
-                    <img src="Target Tap.png" alt="Target Tap">
-                     <a href="https://nexcore-games.github.io/Target-Tap/">  <h3>Target-Tap</h3> </a>
+                    <img src="Target Tap.png" alt="Target Tap Game">
+                    <a href="https://nexcore-games.github.io/Target-Tap/"><h3>Target Tap</h3></a>
                     <p>Precision meets speed in this fast-paced, reflex-testing game. Hone your focus and challenge your reaction time as you aim to hit targets with pinpoint accuracy.</p>
-                   
                 </div>
                 <div class="game">
                     <img src="Maze Runner.png" alt="Maze Runner">
-                    <a href="https://nexcore-games.github.io/Maze-Runner/"><h3>Maze Runner</h3>
-                    <p>Embark on a thrilling adventure through intricate mazes. Solve puzzles, overcome obstacles, and race against the clock in this ultimate test of strategy and quick thinking.</p>
+                    <a href="https://nexcore-games.github.io/Maze-Runner/"><h3>Maze Runner</h3></a>
+                    <p>Precision meets speed in this fast-paced, reflex-testing game. Hone your focus and challenge your reaction time as you aim to hit targets with pinpoint accuracy.</p>
                 </div>
                 <div class="game">
                     <img src="Code Crackers.png" alt="Code Crackers">
-                    <h3>Code Crackers</h3>
-                    <p>Put your problem-solving skills to the test! Decode hidden messages, solve complex puzzles, and prove your mastery of logic in this brain-teasing experience.</p>
+                    <a href="https://nexcore-games.github.io/Code-Crackers/"><h3>Code Crackers</h3></a>
+                    <p>Precision meets speed in this fast-paced, reflex-testing game. Hone your focus and challenge your reaction time as you aim to hit targets with pinpoint accuracy.</p>
                 </div>
                 <div class="game">
                     <img src="Shape Shifter.png" alt="Shape Shifter">
-                    <h3>Shape Shifter</h3>
-                    <p>Enter a dynamic world of transformation where adaptability is key. Shift shapes, solve puzzles, and explore levels that challenge your creativity and spatial awareness.</p>
+                    <a href="https://nexcore-games.github.io/Shape-Shifter/"><h3>Shape Shifter</h3></a>
+                    <p>Precision meets speed in this fast-paced, reflex-testing game. Hone your focus and challenge your reaction time as you aim to hit targets with pinpoint accuracy.</p>
                 </div>
                 <div class="game">
                     <img src="Code Quest.png" alt="Code Quest">
-                    <h3>Code Quest</h3>
-                    <p>You are the saver and here you get a chance to play as a player to clear the level</p>
+                    <a href="https://nexcore-games.github.io/Code-Quest/"><h3>Code Quest</h3></a>
+                    <p>Precision meets speed in this fast-paced, reflex-testing game. Hone your focus and challenge your reaction time as you aim to hit targets with pinpoint accuracy.</p>
                 </div>
                 <div class="game">
-                    <img src="Game Engine.png" alt="NexCore Game Engine">
-                    <h3>NexCore Game Engine</h3>
-                    <p>NexCore Game Engine is under build stage we bring this one very soon...</p>
+                    <img src="Game Engine.png" alt="Game Engine">
+                    <h3> NexCore Game Engine </h3>
+                    <p> NexCore Games Engine is under the build stage and we keep our promise that we release our own game engine very soon ASAP.. </p>
                 </div>
             </div>
         </section>
@@ -238,22 +248,33 @@
                 <textarea rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
-
-            <div class="feedback-section">
-                <h3>Have Suggestions or Feedback?</h3>
-                <textarea rows="4" placeholder="Share your thoughts..."></textarea>
-                <button type="submit">Submit Feedback</button>
-            </div>
         </section>
     </div>
+
+    <button class="back-to-top" id="backToTop">&#8593;</button>
 
     <footer>
         <p>&copy; 2024 NexCore Games. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="https://github.com/NexCore-Games"> Github </a>
+            <a href="https://github.com/NexCore-Games">GitHub</a>
             <a href="#">Twitter</a>
             <a href="#">Instagram</a>
         </div>
     </footer>
+
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
